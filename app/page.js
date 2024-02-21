@@ -16,53 +16,40 @@ import al from "../public/al.png";
 import fs from "../public/fs.png";
 import abm from "../public/abm.png";
 import lru from "../public/lru.png";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Home() {
-  const titleText = "Eloi Dieme"; // Your title
-  const [animatedTitle, setAnimatedTitle] = useState([]);
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    // Initialize the title with each letter in an object including its animation state
-    const letters = titleText.split('').map(letter => ({
-      letter,
-      isAnimating: false,
-    }));
+    const consoleText = (words, id, colors) => {
+      let visible = true;
+      const con = document.getElementById('console');
+      let letterCount = 0;
+      let x = 1;
+      const target = document.getElementById(id);
+      target.setAttribute('style', `color: ${colors[0]}`);
+      let wordIndex = 0; // Track the current word
 
-    setAnimatedTitle(letters);
+      // Start displaying the letters
+      const interval = setInterval(() => {
+        if (letterCount === words[wordIndex].length + 1) {
+          clearInterval(interval); // Stop the interval when the word is fully displayed
+        } else {
+          target.innerHTML = words[wordIndex].substring(0, letterCount);
+          letterCount += x;
+        }
+      }, 120);
 
-    const animateLetter = (index) => {
-      if (index < 0 || index >= letters.length) {
-        // Animation complete; ensure the last letter is also teal
-        return;
-      }
-
-      // Animate the current letter to orange and then back to teal
-      setAnimatedTitle(current => current.map((item, idx) => ({
-        ...item,
-        isAnimating: idx === index,
-      })));
-
-      // Wait for a moment before turning the letter back to teal
-      setTimeout(() => {
-        setAnimatedTitle(current => current.map((item, idx) => ({
-          ...item,
-          // Turn the letter back to teal after it's been orange
-          isAnimating: false,
-        })));
-
-        // Proceed to animate the next letter after a short delay
-        setTimeout(() => {
-          animateLetter(index + 1);
-        }, 100); // Adjust this delay as needed
-      }, 200); // This is the time the letter stays orange before going back to teal
+      // Keep the underscore blinking indefinitely
+      setInterval(() => {
+        con.className = visible ? 'console-underscore hidden' : 'console-underscore text-black dark:text-white';
+        visible = !visible;
+      }, 400);
     };
 
-    // Start animating the first letter
-    animateLetter(0);
-
-  }, [titleText]);
+    consoleText(['Eloi Dieme.'], 'text', ['teal']);
+  }, []);
 
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -94,16 +81,18 @@ export default function Home() {
             </ul>
           </nav>
           <div className="text-center p-10">
-          <h2 className="text-5xl py-2 font-medium md:text-6xl">
-        {animatedTitle.map((item, index) => (
-          <span
-            key={index}
-            className={`transition-colors duration-200 ${item.isAnimating ? 'text-orange-500' : 'text-teal-600'}`}
-          >
-            {item.letter}
-          </span>
-        ))}
-      </h2>
+            <div>
+              <div className="console-container">
+                <span id="text"></span>
+                <div
+                  className="console-underscore text-black dark:text-white"
+                  id="console"
+                >
+                  &#95;
+                </div>
+              </div>
+            </div>
+
             <h3 className="text-2xl py-2 md:text-3xl dark:text-white">
               Student at CentraleSupélec.
             </h3>
@@ -120,7 +109,7 @@ export default function Home() {
             <a href="https://www.linkedin.com/in/eloi-dieme">
               <AiFillLinkedin />
             </a>
-            <a href="https://www.medium.com">
+            <a href="https://medium.com/@eloidieme">
               <AiFillMediumCircle />
             </a>
           </div>
@@ -173,7 +162,7 @@ export default function Home() {
             </p>
             <div className="mt-4">
               <a
-                href="https://dev.to/yourusername"
+                href="https://medium.com/@eloidieme"
                 className="inline-flex items-center text-teal-500 hover:text-teal-600"
               >
                 See more blog posts by me
@@ -220,8 +209,8 @@ export default function Home() {
                   href="#"
                   class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-500"></div>
-                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span class="relative z-10">Read on Medium</span>
                 </a>
               </div>
@@ -246,8 +235,8 @@ export default function Home() {
                   href="#"
                   class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-500"></div>
-                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span class="relative z-10">Read on Medium</span>
                 </a>
               </div>
@@ -277,8 +266,8 @@ export default function Home() {
                   href="#"
                   class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-500"></div>
-                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span class="relative z-10">Read on Medium</span>
                 </a>
               </div>
@@ -300,7 +289,7 @@ export default function Home() {
             </p>
             <div className="mt-4">
               <a
-                href="https://dev.to/yourusername"
+                href="https://github.com/eloidieme"
                 className="inline-flex items-center text-teal-500 hover:text-teal-600"
               >
                 See more projects by me
@@ -323,7 +312,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
             <a
-              href="your-link-here-for-img1"
+              href="https://github.com/eloidieme/Localisation-Acoustique"
               className="basis-1/3 flex-1 relative group block"
             >
               <Image
@@ -341,7 +330,7 @@ export default function Home() {
               </div>
             </a>
             <a
-              href="your-link-here-for-img1"
+              href="https://github.com/eloidieme/Agent-Based-Modeling"
               className="basis-1/3 flex-1 relative group block"
             >
               <Image
@@ -359,7 +348,7 @@ export default function Home() {
               </div>
             </a>
             <a
-              href="your-link-here-for-img1"
+              href="https://github.com/eloidieme/ML-Cancer-App"
               className="basis-1/3 flex-1 relative group block"
             >
               <Image
@@ -377,7 +366,7 @@ export default function Home() {
               </div>
             </a>
             <a
-              href="your-link-here-for-img1"
+              href="hhttps://github.com/eloidieme/LRU-Cache"
               className="basis-1/3 flex-1 relative group block"
             >
               <Image
