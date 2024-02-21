@@ -9,9 +9,9 @@ import {
 } from "react-icons/ai";
 import Image from "next/image";
 import eloiAvatar from "../public/eloi-2-wave.png";
-import design from "../public/design.png";
-import code from "../public/code.png";
-import consulting from "../public/consulting.png";
+import acd from "../public/acd.png";
+import lruc from "../public/lruc.png";
+import tsne from "../public/tsne.png";
 import al from "../public/al.png";
 import fs from "../public/fs.png";
 import abm from "../public/abm.png";
@@ -24,11 +24,11 @@ export default function Home() {
   useEffect(() => {
     const consoleText = (words, id, colors) => {
       let visible = true;
-      const con = document.getElementById('console');
+      const con = document.getElementById("console");
       let letterCount = 0;
       let x = 1;
       const target = document.getElementById(id);
-      target.setAttribute('style', `color: ${colors[0]}`);
+      target.setAttribute("style", `color: ${colors[0]}`);
       let wordIndex = 0; // Track the current word
 
       // Start displaying the letters
@@ -43,12 +43,14 @@ export default function Home() {
 
       // Keep the underscore blinking indefinitely
       setInterval(() => {
-        con.className = visible ? 'console-underscore hidden' : 'console-underscore text-black dark:text-white';
+        con.className = visible
+          ? "console-underscore hidden"
+          : "console-underscore text-black dark:text-white";
         visible = !visible;
       }, 400);
     };
 
-    consoleText(['Eloi Dieme.'], 'text', ['teal']);
+    consoleText(["Eloi Dieme."], "text", ["teal"]);
   }, []);
 
   return (
@@ -99,7 +101,7 @@ export default function Home() {
             <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 md:text-xl max-w-lg mx-auto">
               Engineering student interested in software engineering and data
               science. <br />
-              I'm always up for a challenge !
+              I&#39;m always up for a challenge !
             </p>
           </div>
           <div className="text-5xl flex justify-center dark:text-gray-400 gap-16 py-3 text-gray-600">
@@ -186,12 +188,7 @@ export default function Home() {
           <div className="lg:flex gap-10">
             <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-1/3 flex-col justify-between">
               <div className="flex justify-center">
-                <Image
-                  alt="design-icon"
-                  src={design}
-                  width={100}
-                  height={100}
-                />
+                <Image alt="acd-icon" src={acd} width={100} height={100} />
               </div>
               <h3 className="text-lg font-medium pt-8 pb-2">
                 Understand financial durations dynamics using ACD models.
@@ -206,7 +203,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">R language</p>
               <div class="group cursor-pointer mt-7">
                 <a
-                  href="#"
+                  href="https://medium.com/@eloidieme"
                   class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
                   <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
@@ -217,7 +214,7 @@ export default function Home() {
             </div>
             <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-1/3 flex-col justify-between">
               <div className="flex justify-center">
-                <Image alt="code-icon" src={code} width={100} height={100} />
+                <Image alt="lruc-icon" src={lruc} width={100} height={100} />
               </div>
               <h3 className="text-lg font-medium pt-8 pb-2">
                 What is a LRU cache and why is it useful ?
@@ -232,7 +229,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">C Programming</p>
               <div class="group cursor-pointer mt-7">
                 <a
-                  href="#"
+                  href="https://medium.com/@eloidieme"
                   class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
                   <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
@@ -243,12 +240,7 @@ export default function Home() {
             </div>
             <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-1/3 flex-col justify-between">
               <div className="flex justify-center">
-                <Image
-                  alt="consulting-icon"
-                  src={consulting}
-                  width={100}
-                  height={100}
-                />
+                <Image alt="tsne-icon" src={tsne} width={100} height={100} />
               </div>
               <h3 className="text-lg font-medium pt-8 pb-2">
                 Visualizing high-dimensional data using t-SNE.
@@ -263,7 +255,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">Python language</p>
               <div class="group cursor-pointer mt-7">
                 <a
-                  href="#"
+                  href="https://medium.com/@eloidieme"
                   class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
                   <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
@@ -280,11 +272,11 @@ export default function Home() {
               Some of my projects
             </h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Delving into the realm of technology, I've embarked on a journey
+              Delving into the realm of technology, I&#39;ve embarked on a journey
               to explore and create. From simulating complex systems to
               enhancing data structures for performance, each project represents
               a unique challenge and a step forward in my quest for innovation.
-              Here's a glimpse into some of the exciting projects I've worked
+              Here&#39;s a glimpse into some of the exciting projects I&#39;ve worked
               on.
             </p>
             <div className="mt-4">
@@ -366,7 +358,7 @@ export default function Home() {
               </div>
             </a>
             <a
-              href="hhttps://github.com/eloidieme/LRU-Cache"
+              href="https://github.com/eloidieme/LRU-Cache"
               className="basis-1/3 flex-1 relative group block"
             >
               <Image
