@@ -43,8 +43,8 @@ export default function Home() {
       // Keep the underscore blinking indefinitely
       setInterval(() => {
         con.className = visible
-          ? "console-underscore hidden"
-          : "console-underscore text-black dark:text-white";
+          ? "console-underscore hidden text-3xl sm:text-5xl md:text-6xl"
+          : "console-underscore text-black dark:text-white text-3xl sm:text-5xl md:text-6xl";
         visible = !visible;
       }, 400);
     };
@@ -83,8 +83,8 @@ export default function Home() {
           </nav>
           <div className="text-center p-10">
             <div>
-              <div className="console-container text-2xl sm:text-5xl md:text-6xl">
-                <span id="text" className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl"></span>
+              <div className="console-container">
+                <span id="text" className="text-3xl sm:text-5xl md:text-6xl py-2 text-teal-600 font-medium dark:text-teal-400"></span>
                 <div
                   className="console-underscore text-black dark:text-white"
                   id="console"
@@ -114,7 +114,7 @@ export default function Home() {
               <AiFillMediumCircle />
             </a>
           </div>
-          <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 mb-20 overflow-hidden md:h-96 md:w-96">
+          <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-60 h-60 mt-20 mb-20 overflow-hidden md:h-96 md:w-96">
             <Image
               alt="eloi-avatar"
               src={eloiAvatar}
