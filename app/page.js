@@ -315,7 +315,7 @@ export default function Home() {
                 layout="responsive"
               />
               <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
-                <p className="text-white text-3xl font-bold shadow-md">
+                <p className="text-white text-2xl md:text-3xl font-bold shadow-md">
                   Acoustic Location in Python
                 </p>
               </div>
@@ -333,7 +333,7 @@ export default function Home() {
                 layout="responsive"
               />
               <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
-                <p className="text-white text-3xl font-bold shadow-md">
+                <p className="text-white text-2xl md:text-3xl font-bold shadow-md">
                   Agent-Based Modeling in Python
                 </p>
               </div>
@@ -351,7 +351,7 @@ export default function Home() {
                 layout="responsive"
               />
               <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
-                <p className="text-white text-3xl font-bold shadow-md">
+                <p className="text-white text-2xl md:text-3xl font-bold shadow-md">
                   Fluid Simulation in Python
                 </p>
               </div>
@@ -369,7 +369,7 @@ export default function Home() {
                 layout="responsive"
               />
               <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
-                <p className="text-white text-3xl font-bold shadow-md">
+                <p className="text-white text-2xl md:text-3xl font-bold shadow-md">
                   LRU Cache in C
                 </p>
               </div>
