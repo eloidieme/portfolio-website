@@ -185,7 +185,7 @@ export default function Home() {
             </div>
           </div>
           <div className="lg:flex gap-10">
-            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full md:w-1/3 flex-col justify-between">
+            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full lg:w-1/3 flex-col justify-between">
               <div className="flex justify-center">
                 <Image alt="acd-icon" src={acd} width={100} height={100} />
               </div>
@@ -211,7 +211,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full md:w-1/3 flex-col justify-between">
+            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full lg:w-1/3 flex-col justify-between">
               <div className="flex justify-center">
                 <Image alt="lruc-icon" src={lruc} width={100} height={100} />
               </div>
@@ -237,7 +237,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full md:w-1/3 flex-col justify-between">
+            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full lg:w-1/3 flex-col justify-between">
               <div className="flex justify-center">
                 <Image alt="tsne-icon" src={tsne} width={100} height={100} />
               </div>
