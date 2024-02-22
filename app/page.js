@@ -196,10 +196,10 @@ export default function Home() {
                 An article reviewing the mathematics of ACD models and an
                 empirical analysis of financial durations using R.
               </p>
-              <h4 className="py-4 text-teal-600">Skills involved</h4>
-              <p className="text-gray-800 py-1">Time Series Analysis</p>
-              <p className="text-gray-800 py-1">ACD models</p>
-              <p className="text-gray-800 py-1">R language</p>
+              <h4 className="py-4 text-teal-600 font-bold">Skills involved</h4>
+              <p className="text-gray-800 py-1 font-semibold">Time Series Analysis</p>
+              <p className="text-gray-800 py-1 font-semibold">ACD models</p>
+              <p className="text-gray-800 py-1 font-semibold">R language</p>
               <div class="group cursor-pointer mt-7">
                 <a
                   href="https://medium.com/@eloidieme"
@@ -222,10 +222,10 @@ export default function Home() {
                 A short blog post describing the LRU cache data structure and
                 walking through its implementation in C.
               </p>
-              <h4 className="py-4 text-teal-600">Skills involved</h4>
-              <p className="text-gray-800 py-1">Data Structures</p>
-              <p className="text-gray-800 py-1">Computer Science</p>
-              <p className="text-gray-800 py-1">C Programming</p>
+              <h4 className="py-4 text-teal-600 font-bold">Skills involved</h4>
+              <p className="text-gray-800 py-1 font-semibold">Data Structures</p>
+              <p className="text-gray-800 py-1 font-semibold">Computer Science</p>
+              <p className="text-gray-800 py-1 font-semibold">C Programming</p>
               <div class="group cursor-pointer mt-7">
                 <a
                   href="https://medium.com/@eloidieme"
@@ -248,10 +248,10 @@ export default function Home() {
                 A introduction to dimensionality reduction in machine learning
                 and to the t-SNE technique, used for visualization purposes.
               </p>
-              <h4 className="py-4 text-teal-600">Skills involved</h4>
-              <p className="text-gray-800 py-1">Dimensionality Reduction</p>
-              <p className="text-gray-800 py-1">Data Science</p>
-              <p className="text-gray-800 py-1">Python language</p>
+              <h4 className="py-4 text-teal-600 font-bold">Skills involved</h4>
+              <p className="text-gray-800 py-1 font-semibold">Dimensionality Reduction</p>
+              <p className="text-gray-800 py-1 font-semibold">Data Science</p>
+              <p className="text-gray-800 py-1 font-semibold">Python language</p>
               <div class="group cursor-pointer mt-7">
                 <a
                   href="https://medium.com/@eloidieme"
@@ -314,8 +314,8 @@ export default function Home() {
                 height={"100%"}
                 layout="responsive"
               />
-              <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
-                <p className="text-white text-2xl md:text-3xl font-bold shadow-md">
+              <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
+                <p className="text-white text-base md:text-2xl lg:text-3xl font-normal md:font-bold px-4 text-center md:opacity-0 group-hover:opacity-100">
                   Acoustic Location in Python
                 </p>
               </div>
@@ -332,8 +332,8 @@ export default function Home() {
                 height={"100%"}
                 layout="responsive"
               />
-              <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
-                <p className="text-white text-2xl md:text-3xl font-bold shadow-md">
+              <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
+                <p className="text-white text-base md:text-2xl lg:text-3xl font-normal md:font-bold px-4 text-center md:opacity-0 group-hover:opacity-100">
                   Agent-Based Modeling in Python
                 </p>
               </div>
@@ -350,8 +350,8 @@ export default function Home() {
                 height={"100%"}
                 layout="responsive"
               />
-              <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
-                <p className="text-white text-2xl md:text-3xl font-bold shadow-md">
+              <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
+                <p className="text-white text-base md:text-2xl lg:text-3xl font-normal md:font-bold px-4 text-center md:opacity-0 group-hover:opacity-100">
                   Fluid Simulation in Python
                 </p>
               </div>
@@ -368,8 +368,8 @@ export default function Home() {
                 height={"100%"}
                 layout="responsive"
               />
-              <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
-                <p className="text-white text-2xl md:text-3xl font-bold shadow-md">
+              <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
+                <p className="text-white text-base md:text-2xl lg:text-3xl font-normal md:font-bold px-4 text-center md:opacity-0 group-hover:opacity-100">
                   LRU Cache in C
                 </p>
               </div>
