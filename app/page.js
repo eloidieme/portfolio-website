@@ -8,14 +8,14 @@ import {
   AiFillMediumCircle,
 } from "react-icons/ai";
 import Image from "next/image";
-import eloiAvatar from "../public/eloi-2-wave.png";
-import acd from "../public/acd.png";
-import lruc from "../public/lruc.png";
-import tsne from "../public/tsne.png";
-import al from "../public/al.png";
-import fs from "../public/fs.png";
-import abm from "../public/abm.png";
-import lru from "../public/lru.png";
+import eloiAvatar from "public/eloi-2-wave.png";
+import acd from "public/acd.png";
+import lruc from "public/lruc.png";
+import tsne from "public/tsne.png";
+import al from "public/al.png";
+import fs from "public/fs.png";
+import abm from "public/abm.png";
+import lru from "public/lru.png";
 import React, { useState, useEffect } from "react";
 
 export default function Home() {
