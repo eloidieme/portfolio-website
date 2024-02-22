@@ -28,7 +28,6 @@ export default function Home() {
       let letterCount = 0;
       let x = 1;
       const target = document.getElementById(id);
-      target.setAttribute("style", `color: ${colors[0]}`);
       let wordIndex = 0; // Track the current word
 
       // Start displaying the letters
@@ -84,8 +83,8 @@ export default function Home() {
           </nav>
           <div className="text-center p-10">
             <div>
-              <div className="console-container">
-                <span id="text"></span>
+              <div className="console-container mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
+                <span id="text" className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl"></span>
                 <div
                   className="console-underscore text-black dark:text-white"
                   id="console"
