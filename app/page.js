@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import { BsFillMoonStarsFill } from "react-icons/bs";
+import { BiWorld } from "react-icons/bi";
 import {
   AiFillGithub,
   AiFillLinkedin,
@@ -18,8 +19,155 @@ import abm from "../public/abm.png";
 import lru from "../public/lru.png";
 import React, { useState, useEffect } from "react";
 
+const translations = {
+  en: {
+    title: "Eloi Dieme Portfolio",
+    description: "Eloi Dieme's portfolio website",
+    intro: "Student at CentraleSupélec.",
+    about_1:
+      "Engineering student interested in software engineering and data science.",
+    about_2: "I'm always up for a challenge!",
+    blogTitle: "Some of my blog posts",
+    blogIntro: (
+      <>
+        In the realm of engineering, where{" "}
+        <span className="text-teal-500 font-bold">innovation</span> and{" "}
+        <span className="text-teal-500 font-bold">precision</span> intertwine,
+        the power of writing emerges as a foundational pillar. I firmly believe
+        that the ability to articulate{" "}
+        <span className="text-teal-500 font-bold">complex ideas</span> and
+        document{" "}
+        <span className="text-teal-500 font-bold">intricate processes</span> is
+        indispensable for every engineer. Through writing, we not only{" "}
+        <span className="text-teal-500 font-bold">clarify</span> our own
+        understanding but also{" "}
+        <span className="text-teal-500 font-bold">share</span> our insights and
+        breakthroughs with the world.
+      </>
+    ),
+    passionParagraph: (
+      <>
+        My passion lies in delving into the heart of{" "}
+        <span className="text-teal-500 font-bold">challenging subjects</span>,
+        unraveling their mysteries, and presenting them in a way that enlightens
+        and engages. Each blog post is a testament to this journey, a blend of{" "}
+        <span className="text-teal-500 font-bold">rigorous analysis</span> and{" "}
+        <span className="text-teal-500 font-bold">creative expression</span>.
+      </>
+    ),
+    seeMoreBlog: "See more blog posts by me",
+    readOnMedium: "Read on Medium",
+    skills: "Skills involved",
+    article1Title: "Understand financial durations dynamics using ACD models.",
+    article1Description:
+      "An article reviewing the mathematics of ACD models and an empirical analysis of financial durations using R.",
+    article1Skills: ["Time Series Analysis", "ACD models", "R language"],
+    article2Title: "What is a LRU cache and why is it useful?",
+    article2Description:
+      "A short blog post describing the LRU cache data structure and walking through its implementation in C.",
+    article2Skills: ["Data Structures", "Computer Science", "C Programming"],
+    article3Title: "Visualizing high-dimensional data using t-SNE.",
+    article3Description:
+      "A introduction to dimensionality reduction in machine learning and to the t-SNE technique, used for visualization purposes.",
+    article3Skills: [
+      "Dimensionality Reduction",
+      "Data Science",
+      "Python language",
+    ],
+    projectTitle: "Some of my projects",
+    projectIntro:
+      "Delving into the realm of technology, I've embarked on a journey to explore and create. From simulating complex systems to enhancing data structures for performance, each project represents a unique challenge and a step forward in my quest for innovation. Here's a glimpse into some of the exciting projects I've worked on.",
+    seeMoreProject: "See more projects by me",
+    proj1: "Acoustic Location in Python",
+    proj2: "Agent-Based Modeling in Python",
+    proj3: "Fluid Simulation in Python",
+    proj4: "LRU Cache in C",
+    resume: "Resume",
+  },
+  fr: {
+    title: "Portfolio d'Eloi Dieme",
+    description: "Site portfolio d'Eloi Dieme",
+    intro: "Étudiant à CentraleSupélec.",
+    about_1:
+      "Élève-ingénieur intéressé par le génie logiciel et la science des données.",
+    about_2: "Je suis toujours prêt à relever un défi !",
+    blogTitle: "Quelques-uns de mes articles",
+    blogIntro: (
+      <>
+        Dans le domaine de l&#39;ingénierie, où{" "}
+        <span className="text-teal-500 font-bold">l&#39;innovation</span> et{" "}
+        <span className="text-teal-500 font-bold">la précision</span>{" "}
+        s&#39;entremêlent, le pouvoir de l&#39;écriture émerge comme un pilier
+        fondamental. Je crois fermement que la capacité à articuler{" "}
+        <span className="text-teal-500 font-bold">des idées complexes</span> et
+        à documenter{" "}
+        <span className="text-teal-500 font-bold">des processus intriqués</span>{" "}
+        est indispensable pour chaque ingénieur. Par l&#39;écriture, nous ne
+        faisons pas seulement{" "}
+        <span className="text-teal-500 font-bold">clarifier</span> notre propre
+        compréhension mais aussi{" "}
+        <span className="text-teal-500 font-bold">partager</span> nos
+        découvertes et avancées avec le monde.
+      </>
+    ),
+    seeMoreBlog: "Voir plus d'articles",
+    readOnMedium: "Lire sur Medium",
+    skills: "Compétences impliquées",
+    article1Title:
+      "Comprendre la dynamique des durées financières avec les modèles ACD.",
+    article1Description:
+      "Un article examinant les mathématiques des modèles ACD et une analyse empirique des durées financières utilisant R.",
+    article1Skills: [
+      "Analyse de séries temporelles",
+      "Modèles ACD",
+      "Langage R",
+    ],
+    article2Title: "Qu'est-ce qu'un cache LRU et pourquoi est-il utile ?",
+    article2Description:
+      "Un court article de blog décrivant la structure de données de cache LRU et parcourant son implémentation en C.",
+    article2Skills: [
+      "Structures de données",
+      "Informatique",
+      "Programmation en C",
+    ],
+    article3Title: "Visualiser des données de haute dimension avec t-SNE.",
+    article3Description:
+      "Une introduction à la réduction de dimensionnalité en apprentissage automatique et à la technique t-SNE, utilisée à des fins de visualisation.",
+    article3Skills: [
+      "Réduction de dimensionnalité",
+      "Science des données",
+      "Langage Python",
+    ],
+    passionParagraph: (
+      <>
+        Ma passion réside dans l&#39;exploration approfondie{" "}
+        <span className="text-teal-500 font-bold">de sujets difficiles</span>,
+        en dévoilant leurs mystères et en les présentant d&#39;une manière qui
+        éclaire et engage. Chaque article de blog est un témoignage de ce
+        voyage, un mélange{" "}
+        <span className="text-teal-500 font-bold">d&#39;analyse rigoureuse</span> et{" "}
+        <span className="text-teal-500 font-bold">d&#39;expression créative</span>.
+      </>
+    ),
+    projectTitle: "Quelques-uns de mes projets",
+    projectIntro:
+      "En me plongeant dans le domaine de la technologie, je me suis lancé dans un voyage d'exploration et de création. Qu'il s'agisse de simuler des systèmes complexes ou d'améliorer la performance des structures de données, chaque projet représente un défi unique et un pas en avant dans ma quête d'innovation. Voici un aperçu de quelques-uns des projets passionnants sur lesquels j'ai travaillé.",
+    seeMoreProject: "Voir plus de projets",
+    proj1: "Localisation acoustique en Python",
+    proj2: "Modèles à agents en Python",
+    proj3: "Simulation de fluides en Python",
+    proj4: "Cache LRU en C",
+    resume: "CV",
+  },
+};
+
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
+  const [language, setLanguage] = useState("en");
+
+  const toggleLanguage = () => {
+    setLanguage((prevLanguage) => (prevLanguage === "en" ? "fr" : "en"));
+  };
 
   useEffect(() => {
     const consoleText = (words, id, colors) => {
@@ -52,11 +200,13 @@ export default function Home() {
     consoleText(["Eloi Dieme."], "text", ["teal"]);
   }, []);
 
+  const t = translations[language];
+
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
-        <title>Eloi Dieme Portfolio</title>
-        <meta name="description" content="Eloi Dieme's portfolio website" />
+        <title>{t.title}</title>
+        <meta name="description" content={t.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -68,15 +218,21 @@ export default function Home() {
               <li>
                 <BsFillMoonStarsFill
                   onClick={() => setDarkMode(!darkMode)}
-                  className="cursor-pointer text-2xl"
+                  className="cursor-pointer text-1xl md:text-2xl mx-4"
+                />
+              </li>
+              <li>
+                <BiWorld
+                  onClick={toggleLanguage}
+                  className="cursor-pointer text-2xl md:text-3xl mx-4"
                 />
               </li>
               <li>
                 <a
-                  className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8"
+                  className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8 inline-block w-24 text-center"
                   href="https://drive.google.com/drive/folders/1G30apN74pNufVFqYdgkcfc5_uJ4YDfcW?usp=share_link"
                 >
-                  Resume
+                  {t.resume}
                 </a>
               </li>
             </ul>
@@ -84,7 +240,10 @@ export default function Home() {
           <div className="text-center p-10">
             <div>
               <div className="console-container">
-                <span id="text" className="text-3xl sm:text-5xl md:text-6xl py-2 text-teal-600 font-medium dark:text-teal-400"></span>
+                <span
+                  id="text"
+                  className="text-3xl sm:text-5xl md:text-6xl py-2 text-teal-600 font-medium dark:text-teal-400"
+                ></span>
                 <div
                   className="console-underscore text-black dark:text-white"
                   id="console"
@@ -95,12 +254,11 @@ export default function Home() {
             </div>
 
             <h3 className="text-2xl py-2 md:text-3xl dark:text-white">
-              Student at CentraleSupélec.
+              {t.intro}
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 md:text-xl max-w-lg mx-auto">
-              Engineering student interested in software engineering and data
-              science. <br />
-              I&#39;m always up for a challenge !
+              {t.about_1} <br />
+              {t.about_2}
             </p>
           </div>
           <div className="text-5xl flex justify-center dark:text-gray-400 gap-16 py-3 text-gray-600">
@@ -126,47 +284,21 @@ export default function Home() {
 
         <section>
           <div>
-            <h3 className="text-3xl py-1 dark:text-white">
-              Some of my blog posts
-            </h3>
+            <h3 className="text-3xl py-1 dark:text-white">{t.blogTitle}</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              In the realm of engineering, where{" "}
-              <span className="text-teal-500 font-bold">innovation</span> and{" "}
-              <span className="text-teal-500 font-bold">precision</span>{" "}
-              intertwine, the power of writing emerges as a foundational pillar.
-              I firmly believe that the ability to articulate{" "}
-              <span className="text-teal-500 font-bold">complex ideas</span> and
-              document{" "}
-              <span className="text-teal-500 font-bold">
-                intricate processes
-              </span>{" "}
-              is indispensable for every engineer. Through writing, we not only{" "}
-              <span className="text-teal-500 font-bold">clarify</span> our own
-              understanding but also{" "}
-              <span className="text-teal-500 font-bold">share</span> our
-              insights and breakthroughs with the world.
+              {t.blogIntro}
             </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              My passion lies in delving into the heart of{" "}
-              <span className="text-teal-500 font-bold">
-                challenging subjects
-              </span>
-              , unraveling their mysteries, and presenting them in a way that
-              enlightens and engages. Each blog post is a testament to this
-              journey, a blend of{" "}
-              <span className="text-teal-500 font-bold">rigorous analysis</span>{" "}
-              and{" "}
-              <span className="text-teal-500 font-bold">
-                creative expression
-              </span>
-              .
+            <p
+              className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200"
+            >
+              {t.passionParagraph}
             </p>
             <div className="mt-4">
               <a
                 href="https://medium.com/@eloidieme"
                 className="inline-flex items-center text-teal-500 hover:text-teal-600"
               >
-                See more blog posts by me
+                {t.seeMoreBlog}
                 <svg
                   className="ml-2 w-4 h-4"
                   fill="none"
@@ -190,24 +322,23 @@ export default function Home() {
                 <Image alt="acd-icon" src={acd} width={100} height={100} />
               </div>
               <h3 className="text-lg font-medium pt-8 pb-2">
-                Understand financial durations dynamics using ACD models.
+                {t.article1Title}
               </h3>
-              <p className="py-2">
-                An article reviewing the mathematics of ACD models and an
-                empirical analysis of financial durations using R.
-              </p>
-              <h4 className="py-4 text-teal-600 font-bold">Skills involved</h4>
-              <p className="text-gray-800 py-1 font-semibold">Time Series Analysis</p>
-              <p className="text-gray-800 py-1 font-semibold">ACD models</p>
-              <p className="text-gray-800 py-1 font-semibold">R language</p>
-              <div class="group cursor-pointer mt-7">
+              <p className="py-2">{t.article1Description}</p>
+              <h4 className="py-4 text-teal-600 font-bold">{t.skills}</h4>
+              {t.article1Skills.map((skill, index) => (
+                <p key={index} className="text-gray-800 py-1 font-semibold">
+                  {skill}
+                </p>
+              ))}
+              <div className="group cursor-pointer mt-7">
                 <a
                   href="https://medium.com/@eloidieme"
-                  class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
+                  className="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
-                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span class="relative z-10">Read on Medium</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10">{t.readOnMedium}</span>
                 </a>
               </div>
             </div>
@@ -216,24 +347,23 @@ export default function Home() {
                 <Image alt="lruc-icon" src={lruc} width={100} height={100} />
               </div>
               <h3 className="text-lg font-medium pt-8 pb-2">
-                What is a LRU cache and why is it useful ?
+                {t.article2Title}
               </h3>
-              <p className="py-2">
-                A short blog post describing the LRU cache data structure and
-                walking through its implementation in C.
-              </p>
-              <h4 className="py-4 text-teal-600 font-bold">Skills involved</h4>
-              <p className="text-gray-800 py-1 font-semibold">Data Structures</p>
-              <p className="text-gray-800 py-1 font-semibold">Computer Science</p>
-              <p className="text-gray-800 py-1 font-semibold">C Programming</p>
-              <div class="group cursor-pointer mt-7">
+              <p className="py-2">{t.article2Description}</p>
+              <h4 className="py-4 text-teal-600 font-bold">{t.skills}</h4>
+              {t.article2Skills.map((skill, index) => (
+                <p key={index} className="text-gray-800 py-1 font-semibold">
+                  {skill}
+                </p>
+              ))}
+              <div className="group cursor-pointer mt-7">
                 <a
                   href="https://medium.com/@eloidieme"
-                  class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
+                  className="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
-                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span class="relative z-10">Read on Medium</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10">{t.readOnMedium}</span>
                 </a>
               </div>
             </div>
@@ -242,24 +372,23 @@ export default function Home() {
                 <Image alt="tsne-icon" src={tsne} width={100} height={100} />
               </div>
               <h3 className="text-lg font-medium pt-8 pb-2">
-                Visualizing high-dimensional data using t-SNE.
+                {t.article3Title}
               </h3>
-              <p className="py-2">
-                A introduction to dimensionality reduction in machine learning
-                and to the t-SNE technique, used for visualization purposes.
-              </p>
-              <h4 className="py-4 text-teal-600 font-bold">Skills involved</h4>
-              <p className="text-gray-800 py-1 font-semibold">Dimensionality Reduction</p>
-              <p className="text-gray-800 py-1 font-semibold">Data Science</p>
-              <p className="text-gray-800 py-1 font-semibold">Python language</p>
-              <div class="group cursor-pointer mt-7">
+              <p className="py-2">{t.article3Description}</p>
+              <h4 className="py-4 text-teal-600 font-bold">{t.skills}</h4>
+              {t.article3Skills.map((skill, index) => (
+                <p key={index} className="text-gray-800 py-1 font-semibold">
+                  {skill}
+                </p>
+              ))}
+              <div className="group cursor-pointer mt-7">
                 <a
                   href="https://medium.com/@eloidieme"
-                  class="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
+                  className="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
-                  <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span class="relative z-10">Read on Medium</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10">{t.readOnMedium}</span>
                 </a>
               </div>
             </div>
@@ -267,23 +396,16 @@ export default function Home() {
         </section>
         <section>
           <div>
-            <h3 className="text-3xl py-1 dark:text-white">
-              Some of my projects
-            </h3>
+            <h3 className="text-3xl py-1 dark:text-white">{t.projectTitle}</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Delving into the realm of technology, I&#39;ve embarked on a journey
-              to explore and create. From simulating complex systems to
-              enhancing data structures for performance, each project represents
-              a unique challenge and a step forward in my quest for innovation.
-              Here&#39;s a glimpse into some of the exciting projects I&#39;ve worked
-              on.
+              {t.projectIntro}
             </p>
             <div className="mt-4">
               <a
                 href="https://github.com/eloidieme"
                 className="inline-flex items-center text-teal-500 hover:text-teal-600"
               >
-                See more projects by me
+                {t.seeMoreProject}
                 <svg
                   className="ml-2 w-4 h-4"
                   fill="none"
@@ -316,7 +438,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
                 <p className="text-white text-base md:text-2xl lg:text-3xl font-normal md:font-bold px-4 text-center md:opacity-0 group-hover:opacity-100">
-                  Acoustic Location in Python
+                  {t.proj1}
                 </p>
               </div>
             </a>
@@ -334,7 +456,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
                 <p className="text-white text-base md:text-2xl lg:text-3xl font-normal md:font-bold px-4 text-center md:opacity-0 group-hover:opacity-100">
-                  Agent-Based Modeling in Python
+                  {t.proj2}
                 </p>
               </div>
             </a>
@@ -352,7 +474,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
                 <p className="text-white text-base md:text-2xl lg:text-3xl font-normal md:font-bold px-4 text-center md:opacity-0 group-hover:opacity-100">
-                  Fluid Simulation in Python
+                  {t.proj3}
                 </p>
               </div>
             </a>
@@ -370,7 +492,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 md:opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out rounded-lg">
                 <p className="text-white text-base md:text-2xl lg:text-3xl font-normal md:font-bold px-4 text-center md:opacity-0 group-hover:opacity-100">
-                  LRU Cache in C
+                  {t.proj4}
                 </p>
               </div>
             </a>
