@@ -210,7 +210,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900">
+      <main className="bg-teal-50 px-10 md:px-20 lg:px-40 dark:bg-gray-900">
         <section className="min-h-screen">
           <nav className="py-10 mb-12 flex justify-between dark:text-white">
             <h1 className="text-xl font-burtons">Eloi Dieme</h1>
@@ -317,7 +317,7 @@ export default function Home() {
             </div>
           </div>
           <div className="lg:flex gap-10">
-            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full lg:w-1/3 flex-col justify-between">
+            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-teal-50 w-full lg:w-1/3 flex-col justify-between">
               <div className="flex justify-center">
                 <Image alt="acd-icon" src={acd} width={100} height={100} />
               </div>
@@ -342,7 +342,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full lg:w-1/3 flex-col justify-between">
+            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-teal-50 w-full lg:w-1/3 flex-col justify-between">
               <div className="flex justify-center">
                 <Image alt="lruc-icon" src={lruc} width={100} height={100} />
               </div>
@@ -367,7 +367,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white w-full lg:w-1/3 flex-col justify-between">
+            <div className="flex text-center shadow-lg p-10 rounded-xl my-10 dark:bg-teal-50 w-full lg:w-1/3 flex-col justify-between">
               <div className="flex justify-center">
                 <Image alt="tsne-icon" src={tsne} width={100} height={100} />
               </div>
