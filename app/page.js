@@ -333,7 +333,7 @@ export default function Home() {
               ))}
               <div className="group cursor-pointer mt-7">
                 <a
-                  href="https://medium.com/@eloidieme"
+                  href="https://medium.com/@eloidieme/understand-financial-durations-dynamics-using-acd-models-part-1-the-theory-41589f560317"
                   className="block text-center text-white px-4 py-2 rounded-md relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 group-hover:opacity-0 transition-opacity duration-300"></div>
