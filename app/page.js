@@ -461,7 +461,7 @@ export default function Home() {
               </div>
             </a>
             <a
-              href="https://github.com/eloidieme/ML-Cancer-App"
+              href="https://github.com/eloidieme/fluid-sim-python"
               className="basis-1/3 flex-1 relative group block"
             >
               <Image
